@@ -1,18 +1,27 @@
+# Import the streamlit library
 import streamlit as st
+
+# Import the numpy and skimage libraries
 import numpy as np
 from skimage import io
 
 
-st.cache_data(ttl=300)
+# Cache the results of the function for 300 seconds
+@st.cache_data(ttl=300)
+# Define a function called "plot"
 def plot():
+    # Read in an image from the specified URL using skimage
     vol = io.imread("https://s3.amazonaws.com/assets.datacamp.com/blog_assets/attention-mri.tif")
+    # Transpose the image to create a 3D volume
     volume = vol.T
+    # Get the dimensions of the volume
     r, c = volume[0].shape
 
-    # Define frames
+    # Import the plotly.graph_objects library and define the number of frames
     import plotly.graph_objects as go
     nb_frames = 68
 
+    # Create a new figure with frames
     fig = go.Figure(frames=[go.Frame(data=go.Surface(
         z=(6.7 - k * 0.1) * np.ones((r, c)),
         surfacecolor=np.flipud(volume[67 - k]),
@@ -31,6 +40,7 @@ def plot():
         colorbar=dict(thickness=20, ticklen=4)
         ))
 
+    # Define a function to set the frame arguments for the animation
     st.cache_data(ttl=300)
     def frame_args(duration):
         return {
@@ -40,6 +50,7 @@ def plot():
                 "transition": {"duration": duration, "easing": "linear"},
             }
 
+    # Create a slider for the animation
     sliders = [
                 {
                     "pad": {"b": 10, "t": 60},
@@ -57,7 +68,7 @@ def plot():
                 }
             ]
 
-    # Layout
+    # Define the layout of the plot
     fig.update_layout(
             title='Slices in volumetric data',
             width=600,
@@ -89,4 +100,6 @@ def plot():
             ],
             sliders=sliders
     )
+
+    # Display the plot
     st.plotly_chart(fig, use_container_width=True)
