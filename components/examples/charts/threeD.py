@@ -2,6 +2,8 @@ import streamlit as st
 import numpy as np
 from skimage import io
 
+
+st.cache_data(ttl=300)
 def plot():
     vol = io.imread("https://s3.amazonaws.com/assets.datacamp.com/blog_assets/attention-mri.tif")
     volume = vol.T
@@ -29,7 +31,7 @@ def plot():
         colorbar=dict(thickness=20, ticklen=4)
         ))
 
-
+    st.cache_data(ttl=300)
     def frame_args(duration):
         return {
                 "frame": {"duration": duration},

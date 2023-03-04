@@ -1,13 +1,11 @@
 import streamlit as st
 import pandas as pd
-import time
 from models.Usage import Usage
-from components import card_generic
-from components import card_presentation
-from components import sleeper
+from components import card_generic, card_presentation, sidebar_brand, sleeper
+
 
 st.set_page_config(layout="wide")
-# usage = [Use('available', 100-percentage), Use('used', percentage)]
+sidebar_brand.put()
 
 
 usages = [

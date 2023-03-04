@@ -2,6 +2,8 @@ import streamlit as st
 import numpy as np
 import plotly.figure_factory as ff
 
+
+st.cache_data(ttl=300)
 def plot():
     # Add histogram data
     x1 = np.random.randn(200) - 2

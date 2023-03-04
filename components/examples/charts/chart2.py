@@ -1,7 +1,7 @@
 import streamlit as st
 import plotly.express as px
 
-
+st.cache_data(ttl=300)
 def plot():
     df = px.data.gapminder()
 

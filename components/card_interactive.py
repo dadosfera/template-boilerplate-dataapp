@@ -4,6 +4,8 @@ import plotly.express as px
 from models.Usage import Usage
 import theme.colors as colors
 
+
+st.cache_data(ttl=300)
 def put(card_id, card_title):
     with st.container():
         percentage = st.slider(card_id, 0, 100, 0) #slider component with 0-100 range satarting in 0

@@ -2,6 +2,8 @@ import streamlit as st
 import plotly.express as px
 import pandas as pd
 
+
+st.cache_data(ttl=300)
 def plot():
     df = pd.DataFrame(dict(
     r=[1, 5, 2, 2, 3],

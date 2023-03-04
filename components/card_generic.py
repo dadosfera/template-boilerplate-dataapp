@@ -2,6 +2,8 @@ import streamlit as st
 import plotly.express as px
 import theme.colors as colors
 
+
+st.cache_data(ttl=300)
 def put(data_frame, card_title, description=''):
     with st.container():
         
