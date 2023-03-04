@@ -1,6 +1,20 @@
 import streamlit as st
 import plotly.express as px
-from datetime import datetime
+
+
+# Using object notation
+add_selectbox = st.sidebar.selectbox(
+    "How would you like to be contacted?",
+    ("Email", "Home phone", "Mobile phone")
+)
+
+# Using "with" notation
+with st.sidebar:
+    add_radio = st.radio(
+        "Choose a shipping method",
+        ("Standard (5-15 days)", "Express (2-5 days)")
+    )
+
 
 percentage = st.slider('Percentage', 0, 100, 0)
 st.write(percentage, '% completed.')
@@ -8,9 +22,9 @@ st.write(percentage, '% completed.')
 df = {'percentage': [percentage, 100-percentage],
       'names': ['ocupado', 'disponivel']}
 
-# df = px.data.tips()
-print(df)
-# Represent only large countries
+st.dataframe(df)
+st.table(df)
+
 fig = px.pie(df, values='percentage', names='names', color='names',
              color_discrete_map={'disponivel': 'green',
                                  'ocupado': 'red'},
