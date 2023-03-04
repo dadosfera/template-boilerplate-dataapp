@@ -1,32 +1,33 @@
 import streamlit as st
-import plotly.express as px
+import pandas as pd
+from components import card_interactive
+from components import chart_radar_interactive
+
+st.set_page_config(layout="wide")
 
 
-# Using object notation
-add_selectbox = st.sidebar.selectbox(
-    "How would you like to be contacted?",
-    ("Email", "Home phone", "Mobile phone")
-)
+col1, col2 = st.columns(2)
 
-# Using "with" notation
-with st.sidebar:
-    add_radio = st.radio(
-        "Choose a shipping method",
-        ("Standard (5-15 days)", "Express (2-5 days)")
-    )
+with col2:
+    card_interactive.put('card-input-id', 'card-chart-title')
+    col3, col4 = st.columns(2)
+    with col3:
+        param1 = st.number_input('Param1', min_value=0, max_value=7)
+        param2 = st.number_input('Param2', min_value=0, max_value=7)
+        param3 = st.number_input('Param3', min_value=0, max_value=7)
+        param4 = st.number_input('Param4', min_value=0, max_value=7)
+    with col4:
+        param5 = st.number_input('Param5', min_value=0, max_value=7)
+        param6 = st.number_input('Param6', min_value=0, max_value=7)
+        param7 = st.number_input('Param7', min_value=0, max_value=7)
 
-
-percentage = st.slider('Percentage', 0, 100, 0)
-st.write(percentage, '% completed.')
-
-df = {'percentage': [percentage, 100-percentage],
-      'names': ['ocupado', 'disponivel']}
-
-st.dataframe(df)
-st.table(df)
-
-fig = px.pie(df, values='percentage', names='names', color='names',
-             color_discrete_map={'disponivel': 'green',
-                                 'ocupado': 'red'},
-             title='Population of European continent', hole=.7)
-st.plotly_chart(fig, use_container_width=True)
+with col1:
+    st.header("Text")
+    st.markdown('in eu mi bibendum neque egestas congue quisque egestas diam in arcu cursus euismod quis viverra nibh cras pulvinar mattis nunc sed blandit libero volutpat sed cras ornare arcu dui vivamus arcu felis bibendum ut tristique et egestas quis ipsum suspendisse ultrices gravida dictum fusce ut placerat orci nulla pellentesque dignissim enim sit amet venenatis urna cursus eget nunc scelerisque viverra mauris in aliquam sem fringilla ut morbi tincidunt augue interdum velit euismod in pellentesque massa placerat duis ultricies lacus sed turpis tincidunt id aliquet risus feugiat in ante metus dictum at tempor commodo ullamcorper a lacus vestibulum sed arcu non odio euismod lacinia at quis risus sed vulputate odio ut enim blandit volutpat maecenas volutpat blandit aliquam etiam erat velit scelerisque in dictum non consectetur a erat nam at lectus urna duis convallis convallis tellus id interdum velit laoreet id donec ultrices tincidunt arcu non sodales neque sodales ut etiam sit amet nisl purus in mollis nunc sed id semper risus in hendrerit gravida rutrum quisque non tellus orci ac auctor augue mauris augue neque gravida in fermentum et sollicitudin ac orci phasellus egestas tellus rutrum tellus pellentesque eu tincidunt tortor aliquam nulla facilisi cras fermentum odio eu feugiat')
+    chart_radar_interactive.put(param1,
+                                param2,
+                                param3,
+                                param4,
+                                param5,
+                                param6,
+                                param7)

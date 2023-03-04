@@ -1,2 +1,3 @@
 assets/*.csv
 .venv
+__pycache__
