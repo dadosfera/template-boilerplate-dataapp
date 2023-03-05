@@ -1,7 +1,10 @@
 
 
-Streamlit Data App Template
-This is a template for building data visualization applications using Streamlit. It includes several examples of using components and templates to create interactive and engaging user interfaces.
+## Dadosfera Data App Template
+
+This is a template for building data visualization applications using [Streamlit](https://streamlit.io/). It includes several examples of using components and templates to create interactive and engaging user interfaces.
+
+All examples found in this project were developed using Streamlit's own [documentation](https://docs.streamlit.io/library/get-started/create-an-app).
 
 Getting Started
 To get started with this template, you can clone the repository using the following steps:
