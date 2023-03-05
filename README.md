@@ -20,7 +20,7 @@ streamlit run app.py
 This will start a local server and open the data app in your default web browser. From there, you can customize the application to your needs by adding new components, changing the layout, or incorporating your own data and models.
 
 Deployment
-To use this template in your intelligence module, follow this [tutorial](https://docs.dadosfera.ai/docs/sobre-a-dadosfera).
+To use this template in your intelligence module, follow this [tutorial](https://docs.dadosfera.ai/docs/data-app-com-streamlit).
 
 Support
 If you have any questions or issues with this template, please open an issue on the GitHub repository. We will do our best to provide timely support and address any concerns.
