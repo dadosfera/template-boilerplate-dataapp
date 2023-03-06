@@ -10,8 +10,8 @@ Getting Started
 To get started with this template, you can clone the repository using the following steps:
 
 - Download de source code: 
-    - [.zip format](https://github.com/dadosfera/data-app-templates/archive/refs/tags/v0.0.2.zip)
-    - [.tar.gz format](https://github.com/dadosfera/data-app-templates/archive/refs/tags/v0.0.2.tar.gz)
+    - [.zip format](https://github.com/dadosfera/data-app-templates/archive/refs/tags/v0.0.3.zip)
+    - [.tar.gz format](https://github.com/dadosfera/data-app-templates/archive/refs/tags/v0.0.3.tar.gz)
 
 Once you have the source code, you can run the data app using the following command:
 
