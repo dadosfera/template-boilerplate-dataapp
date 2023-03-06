@@ -27,4 +27,4 @@ def put(card_id, card_title):
         with cardColumn2:
             # Displaying the percentage value and the data in a DataFrame
             st.write('###', str(percentage), '%')
-            st.dataframe(df)
+            st.dataframe(df, use_container_width=True)
