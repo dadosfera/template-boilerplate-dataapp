@@ -16,7 +16,7 @@ def put():
         """
         return df.to_csv().encode('utf-8')
     
-    df = pd.read_csv('assets/sample.csv')
+    df = pd.read_csv('app/assets/sample.csv')
 
     # Call the conversion function and cache its result
     csv = convert_df(df)
